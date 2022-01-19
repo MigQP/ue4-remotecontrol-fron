@@ -365,47 +365,7 @@
 </script>
 
 <body>
-
-    <h2>Luz Direccional</h2>
-    Rotación: <input type="text" id="light_rotation" value="100" size="3">
-    <input type="button" value="Actualizar" onclick="updateDirectionalLightValue()">    
-    <input type="button" value="-" onclick="updateDirectionalLightStep(-10)">
-    <input type="button" value="+" onclick="updateDirectionalLightStep(10)">
-
-    <select id="daytime" onchange="updateDirectionalLightOption()">
-        <option value="190">Mañana</option>
-        <option value="250">Mediodia</option>
-        <option value="356">Atardecer</option>
-        <option value="100">Noche</option>
-    </select>
-
-    <hr>
-    <h2>Sun Sky</h2>
-    Hora del día: <input type="text" id="hour_of_day" value="8" size="3">
-    <input type="button" value="Actualizar" onclick="updateSunSkyValue();">
-    <input type="button" value="-" onclick="updateSunSkyStep(-1);">
-    <input type="button" value="+" onclick="updateSunSkyStep(1);">
-    <select id="daytime_hour" onchange="updateSunSkyOption();">
-        <option value="8">Mañana</option>
-        <option value="13">Mediodía</option>
-        <option value="18">Atardecer</option>
-        <option value="22">Noche</option>
-    </select>
-
-    <hr>
-    <h2>Farola</h2>
-    <input type="button" value="Encender/Apagar" onclick="toggleLampPost();">
-    <input type="button" value="Encender/Apagar Todas las Luces" onclick="toggleAllLampPosts();">
-
-    <hr>
-    <h2>Explosion</h2>
-    <input type="button" value="BOOM!" onclick="explosion();">
-
-    <hr>
-    <h2>Hello world</h2>
-    <input type="text" id="my_message">
-    <input type="button" value="Hello World" onclick="helloWorld();">
-
+    
     <hr>
     <h2>Spawnear canica</h2>
     <div id="colorSelector1"></div>  
@@ -423,10 +383,7 @@
     </select>
     <input type="button" value="CrearCanica" onclick="spawnCanica();">
 
-    <hr>
-    <h2>Controles avanzados</h2>
-    <input class="knob" data-angleOffset=-125 data-angleArc=250 data-fgColor="#66EE66" value="35">
-    <div id="colorSelector"></div>      
+
 
 
 </body>
