@@ -9,6 +9,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.knob.min.js"></script>
 
+    <link rel="stylesheet" media="screen" type="text/css" href="css/style.css" />
     <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
     <script type="text/javascript" src="js/colorpicker.js"></script>
     
@@ -21,6 +22,7 @@
     //
 
     var timesSpawned = 0;
+    var timesSlided = 0;
 
     var ue4_conn;
 
@@ -223,10 +225,41 @@
         );
     }
 
+    function getSpawnPosBySlider()
+    {
+
+        spawn_slider = parseFloat(document.getElementById("slider_pos").value);
+        setSpawnPosBySlider(spawn_slider);
+        timesSlided++;
+
+    }
+
+    function setSpawnPosBySlider(value)
+    {
+        console.log(value);
+        callUEFunction(
+            "/Game/StarterContent/Maps/UEDPIE_0_Minimal_Default.Minimal_Default:PersistentLevel.BP_Interfaz_4",
+            //"/Game/StarterContent/Maps/Minimal_Default.Minimal_Default:PersistentLevel.BP_Interfaz_2",
+            "SetPositionBySlider",
+            {  
+                "x": -75,
+                "y": value,
+                "z": 145
+            },
+            true
+
+        );
+    }
+
 
     function spawnCanica()
     { 
 
+        if(timesSlided == 0)
+
+        {
+            setSpawnPosBySlider(137);
+        }
         myName = document.getElementById("my_name").value;
         //if (timesSpawned == 0)
 
@@ -373,15 +406,30 @@
     Nombre:
     <input type="text" id="my_name">
     <br>
-    Posición: 
 
+
+    <!--
     <select id="spawn_pos" onchange="getSpawnPos();">
         <option value="0">1</option>
         <option value="1">2</option>
         <option value="2">3</option>
         <option value="3">4</option>
     </select>
-    <input type="button" value="CrearCanica" onclick="spawnCanica();">
+    -->
+
+    <!--
+    <input id="slider_pos" type="range" min="45" max="229" value="137" oninput="getSpawnPosBySlider(); this.nextElementSibling.value = this.value">
+    <output>137</output>
+    -->
+
+    <div class="slidecontainer">
+        Posición: 
+        <input type="range" min="45" max="229" value="137" class="slider" id="slider_pos" oninput="getSpawnPosBySlider(); this.nextElementSibling.value = this.value">
+        <output>137</output>
+        <input type="button" value="CrearCanica" onclick="spawnCanica();">
+      </div>
+
+
 
 
 
